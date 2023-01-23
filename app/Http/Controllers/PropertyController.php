@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Storage;
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PropertyController extends Controller
 {
@@ -16,8 +17,9 @@ class PropertyController extends Controller
     public function create() {
       return view('admin.property.create');
     }
-    
+
     public function store(Request $request) {
+        $user = Auth::user();
       // validate form input
       $this->validate($request, [
           'price' => 'required',
@@ -32,6 +34,7 @@ class PropertyController extends Controller
       $image = $request->file('image')->store('public/files');
 
       Property::create([
+        'user_id' => $user->id,
         'price' => $request->price,
         'address' => $request->address,
         'bedrooms' => $request->bedrooms,
@@ -94,4 +97,14 @@ class PropertyController extends Controller
 
       return redirect()->route('property.index')->with('message', 'Property deleted successfully');
     }
+
+    public function showUserName($user_id)
+    {
+
+        $property = Property::with('user')->where('user_id', $user_id)->first();
+        $user_name = $property->user->name;
+        return view('property.index', ['user_name' => $user_name]);
+    }
+
+
 }

@@ -10,7 +10,7 @@ class Property extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['price', 'address', 'bedrooms', 'bathrooms', 'image', 'category_id'];
+    protected $fillable = ['price', 'address', 'bedrooms', 'bathrooms', 'image', 'category_id','user_id'];
 
     public function category() {
       // one-to-one relationship. A property is associated with one category
@@ -20,8 +20,13 @@ class Property extends Model
       return $this->hasOne(Category::class, 'id', 'category_id');
     }
 
-      // a Property can have many Users that like it 
+      // a Property can have many Users that like it
       public function likers() {
         return $this->belongsToMany(User::class);
       }
+
+      public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }
