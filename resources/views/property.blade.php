@@ -94,9 +94,16 @@
                                         <i class="fa-solid fa-bath" style="font-size:31px;color:rgb(9, 196, 108);" id="fa-build">:</i>
 										{{$property->bathrooms}} bathrooms
 									</p>
-									
+                                    <p class="card-text">
+                                        <i class="fa-solid fa-bath" style="font-size:31px;color:rgb(9, 196, 108);" id="fa-build">:</i>
+										{{$property->user->name}}
+									</p>
+                                    <p class="card-text">
+                                        <i class="fa-solid fa-bath" style="font-size:31px;color:rgb(9, 196, 108);" id="fa-build">:</i>
+                                        Contacts {{$property->user->email}}
+									</p>
 									<p class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
-									<a href="{{route('frontproperty.show', [$property->id])}}" class="btn btn-success">View</a>	
+									<a href="{{route('frontproperty.show', [$property->id])}}" class="btn btn-success">View</a>
 
 									<like-button
 										property-id="{{ $property->id }}"

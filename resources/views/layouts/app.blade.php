@@ -115,15 +115,12 @@
 
    {{-- Botuman --}}
 
-  <script>
-    let url2  = "xKralTr"
-  </script>
+
 
 
   <script>
 
-    let url  = "xKralTr"
-    console.log(window);
+
 
 
       var botmanWidget = {

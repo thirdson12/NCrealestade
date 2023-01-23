@@ -4,7 +4,7 @@
 
   <div class="container-fluid" id="container-wrapper">
 
-		<!-- Breadcrumb -->		
+		<!-- Breadcrumb -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
       <h1 class="h3 mb-0 text-gray-800">Properties</h1>
       <ol class="breadcrumb">
@@ -40,6 +40,7 @@
                   <th>Address</th>
                   <th>Bedrooms</th>
                   <th>Bathrooms</th>
+                  <th>Seller</th>
 									<th>Category</th>
 									<th>Actions</th>
                 </tr>
@@ -55,11 +56,12 @@
                       <td>{{ $property->address }}</td>
                       <td>{{ $property->bedrooms }}</td>
 											<td>{{$property->bathrooms}}</td>
+                                            <td>{{$property->user->name}}</td>
 											<td>{{$property->category->name}}</td>
                       <td>
 												<div class="btn-group" role="group">
 													<a class="btn btn-sm btn-primary" href="{{ route('property.edit', [$property->id]) }}">Edit</a>
-													<form 
+													<form
 														action="{{ route('property.destroy', [$property->id]) }}"
 														method="post"
 														onsubmit="return confirmDelete()"
@@ -74,8 +76,8 @@
                       </td>
                     </tr>
                   @endforeach
-                    
-                @else 
+
+                @else
                     <td>No property created yet.</td>
                 @endif
 
