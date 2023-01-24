@@ -56,6 +56,12 @@
 
                 <select name="bedrooms" class="form-select @error('bedrooms') is-invalid @enderror">
                   <option value="" selected>{{request()->bedrooms ? request()->bedrooms . ' ' . 'All Bedrooms' : 'Bedrooms'}}</option>
+                  <option value="0">
+                    0
+                  </option>
+                  <option value="1">
+                    1
+                  </option>
                   <option value="2">
                     2
                   </option>
@@ -213,7 +219,7 @@
   <div class="col-md-12">
     <div class="title-wrap d-flex justify-content-between">
       <div class="title-box">
-        <h2 class="title-a">Best of Our Agents</h2>
+        <h2 class="title-a">Our Admins</h2>
       </div>
       <div class="title-link">
         {{-- <a href="#">All Agents --}}
@@ -232,21 +238,19 @@
         <div class="card-header-d">
           <div class="card-title-d align-self-center">
             <h3 class="title-d">
-              <a href="agent-single.html" class="link-two">Barkın Dövinç</a>
+                <a href="http://127.0.0.1:8000/chatify/3" class="link-two">Barkın Sevinç</a>
               <br>
             </h3>
           </div>
         </div>
         <div class="card-body-d">
-          <p class="content-d color-text-a">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at erat eget nisi molestie gravida. Donec dignissim sed augue eu sollicitudin. Duis sit amet sapien convallis, imperdiet mauris at, feugiat ante. Cras eleifend imperdiet ante.
-          </p>
+
           <div class="info-agents color-a">
             <p>
-              <strong>Phone: </strong> +66 996 669931
+                <strong>Phone: </strong> +90 532 862 1124
             </p>
             <p>
-              <strong>Email: </strong> barkın@dövinç.com
+                <strong>Email: </strong> barkin@barkin.com
             </p>
           </div>
         </div>
@@ -288,21 +292,19 @@
         <div class="card-header-d">
           <div class="card-title-d align-self-center">
             <h3 class="title-d">
-              <a href="agent-single.html" class="link-two">Bertu Aylıer</a>
+              <a href="http://127.0.0.1:8000/chatify/1" class="link-two">Bertu Güneşlier</a>
               <br>
             </h3>
           </div>
         </div>
         <div class="card-body-d">
-          <p class="content-d color-text-a">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at erat eget nisi molestie gravida. Donec dignissim sed augue eu sollicitudin. Duis sit amet sapien convallis, imperdiet mauris at, feugiat ante. Cras eleifend imperdiet ante.
-          </p>
+
           <div class="info-agents color-a">
             <p>
-              <strong>Phone: </strong> +13 9613 991396
+                <strong>Phone: </strong> +90 530 830 4231
             </p>
             <p>
-              <strong>Email: </strong> Bertu@Aylıer.com
+                <strong>Email: </strong> bertu@bertu.com
             </p>
           </div>
         </div>
@@ -344,21 +346,19 @@
         <div class="card-header-d">
           <div class="card-title-d align-self-center">
             <h3 class="title-d">
-              <a href="agent-single.html" class="link-two">Baronu Topiçınaru</a>
+              <a href="http://127.0.0.1:8000/chatify/5" class="link-two">Baronu Topçinar</a>
               <br>
             </h3>
           </div>
         </div>
         <div class="card-body-d">
-          <p class="content-d color-text-a">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at erat eget nisi molestie gravida. Donec dignissim sed augue eu sollicitudin. Duis sit amet sapien convallis, imperdiet mauris at, feugiat ante. Cras eleifend imperdiet ante.
-          </p>
+
           <div class="info-agents color-a">
             <p>
-              <strong>Phone: </strong> +31 6931 993169
+                <strong>Phone: </strong> +90 530 830 4231
             </p>
             <p>
-              <strong>Email: </strong> Baranu@Topçinaru.com
+                <strong>Email: </strong> bertu@bertu.com
             </p>
           </div>
         </div>
@@ -420,64 +420,63 @@
     <!-- ilk property son foreach -->
 
 
+   <!-- ilk property son foreach -->
+   <ul class="property-list has-scrollbar">
+    @foreach ($properties as $property)
     <li>
-      <div class="property-card">
-        <figure class="card-banner">
-          <a href="#">
-            <img src="img/k3.jpeg" alt="New Apartment Nice View" class="w-100">
-          </a>
-        </figure>
-        <div class="card-content">
-          <div class="card-price">
-            <strong>$34,900</strong>/Month
+        <div class="property-card">
+          <figure class="card-banner">
+            <a href="{{route('frontproperty.show', [$property->id])}}">
+              <img src="{{Storage::url($property->image)}}" alt="" class="w-100">
+            </a>
+          </figure>
+          <div class="card-content">
+            <div class="card-price">
+              <strong>${{$property->price}}</strong>
+            </div>
+            <h3 class="h3 card-title">
+              <a href="{{route('frontproperty.show', [$property->id])}}">{{$property->address}}</a>
+            </h3>
+            <ul class="card-list">
+              <li class="card-item">
+                <i class="fa-solid fa-bed"></i>
+                <span>{{$property->bedrooms}}</span>
+              </li>
+              <li class="card-item">
+                <i class="fa-solid fa-bath"></i>
+                <span>{{$property->bathrooms}}</span>
+              </li>
+            </ul>
           </div>
-          <h3 class="h3 card-title">
-            <a href="#">New Apartment Nice View</a>
-          </h3>
-          <p class="card-text">
-            Beautiful Huge 1 Family House In Heart Of Westbury. Newly Renovated With New Wood
-          </p>
-          <ul class="card-list">
-            <li class="card-item">
-              <strong>3</strong>
-              <i class="fa-solid fa-bed"></i>
-              <span>Bedrooms</span>
-            </li>
-            <li class="card-item">
-              <strong>2</strong>
-              <i class="fa-solid fa-person"></i>
-              <span>Bathrooms</span>
-            </li>
-            <li class="card-item">
-              <strong>3450</strong>
-              <i class="fa-regular fa-square"></i>
-              <span>Square Ft</span>
-            </li>
-          </ul>
-        </div>
-        <div class="card-footer">
-          <div class="card-author">
-            <div>
-              <p class="author-name">
-                <a href="#">Baronu Topiçınaru</a>
-              </p>
-              <p class="author-title">Estate Agents</p>
+          <div class="card-footer">
+            <div class="card-author">
+              <div>
+                <p class="author-name">
+                  <a href="http://127.0.0.1:8000/chatify">{{$property->user->name}}</a>
+                </p>
+                <p class="author-title">{{$property->user->email}} Estate Agents</p>
+              </div>
+
+            </div>
+            <div class="card-footer-actions ">
+              <like-button class="btn-success"
+              property-id="{{ $property->id }}"
+										likes={{ $likes = auth()->user() ? auth()->user()->like->contains($property->id) : false }}>
+              </like-button>
             </div>
           </div>
-          <div class="card-footer-actions">
-            <button class="card-footer-actions-btn">
-              <i class="fa-solid fa-heart"></i>
-            </button>
-          </div>
         </div>
-      </div>
-    </li>
-
-  </ul>
-
+      </li>
+      @endforeach
+    </ul>
 </div>
 </section>
 
+<script>
+    window.onscroll = function () {
+
+    };
+ </script>
 
 
 

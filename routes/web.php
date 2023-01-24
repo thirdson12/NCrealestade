@@ -27,6 +27,8 @@ Route::get('/', function () {
 Route::prefix('')->group(function () {
     Route::post('/Seller2',[Seller2Controller::class, 'store'])->name('Seller2.store');
     route::get('/Seller2',[Seller2Controller::class, 'create'])->name('Seller2');
+    route::get('/',[Seller2Controller::class, 'index'])->name('index');
+    
 
 });
 

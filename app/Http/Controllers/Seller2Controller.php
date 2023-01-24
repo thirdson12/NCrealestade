@@ -47,9 +47,9 @@ class Seller2Controller extends Controller
         return redirect()->back()->with('message', 'Property created successfully');
       }
 
-      
+
     public function index() {
-        $properties = Property::all();
-        return view('property.index', compact('properties'));
+        $properties = Property::paginate(4);
+        return view('index', compact('properties'));
     }
 }
