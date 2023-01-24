@@ -1,4 +1,4 @@
-@extends('admin.layouts.main')
+@extends('layouts.app')
 
 @section('content')
 <div class="container-fluid" id="container-wrapper">
@@ -29,7 +29,7 @@
 				<div class="card-body">
 
 					<!-- Form -->
-					<form action="{{route('property.update', [$property->id])}}" method="post" enctype="multipart/form-data">
+					<form action="{{route('my.update', [$property->id])}}" method="post" enctype="multipart/form-data">
 						@csrf
 						@method('PUT')
 						<div class="form-group">

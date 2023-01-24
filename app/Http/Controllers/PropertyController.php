@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Storage;
+
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 class PropertyController extends Controller
@@ -93,7 +94,7 @@ class PropertyController extends Controller
       $property = Property::find($id);// get the property by id
       $filename = $property->image;// get the image
       $property->delete();// delete the property
-      \Storage::delete($filename);// delete the image
+      Storage::delete($filename);// delete the image
 
       return redirect()->route('property.index')->with('message', 'Property deleted successfully');
     }

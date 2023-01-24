@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid bg-dark" id="container-wrapper">
 
-	<!-- Breadcrumb -->	
+	<!-- Breadcrumb -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-success">Property</h1>
 		<ol class="breadcrumb ">
@@ -14,7 +14,7 @@
 
 	<div class="row">
 		<div class="col-lg-6">
-			
+
 			<!-- Session messages -->
 			@if (Session::has('message'))
 				<div class="alert alert-success">
@@ -28,16 +28,16 @@
 				</div>
 				<div class="card-body">
 
-					<!-- Form -->					
+					<!-- Form -->
 					<form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">
-						@csrf 
+						@csrf
 
 						<div class="form-group">
 							<label for="price">Price</label>
-							<input 
-								type="number" 
-								name="price" 
-								class="form-control @error('price') is-invalid @enderror"	
+							<input
+								type="number"
+								name="price"
+								class="form-control @error('price') is-invalid @enderror"
 								placeholder="Enter price of property"
 							>
 							@error('price')
@@ -49,11 +49,12 @@
 
 						<div class="form-group">
 							<label for="address">Address</label>
-							<input 
-								type="text" 
-								name="address" 
-								class="form-control @error('address') is-invalid @enderror"	
+							<input
+								type="text"
+								name="address"
+								class="form-control @error('address') is-invalid @enderror"
 								placeholder="Enter address of property"
+                                maxlength="40"
 							>
 							@error('address')
 								<span class="invalid-feedback" role="alert">
@@ -87,8 +88,8 @@
 							<select name="category" class="form-control @error('category') is-invalid @enderror">
 								<option value="">Select</option>
 								@foreach (App\Models\Category::all() as $key => $category)
-									<option 
-										value="{{$category->id}}" 
+									<option
+										value="{{$category->id}}"
 									>
 										{{$category->name}}
 									</option>
@@ -101,8 +102,8 @@
 							<select name="subcategory" class="form-control @error('subcategory') is-invalid @enderror">
 								<option value="">Select</option>
 								@foreach (App\Models\Subcategory::all() as $subcategory)
-									<option 
-										value="{{$subcategory->id}}" 
+									<option
+										value="{{$subcategory->id}}"
 									>
 										{{$subcategory->num_bedrooms}}
 									</option>

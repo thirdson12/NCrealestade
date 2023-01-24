@@ -84,6 +84,7 @@
                   <a class="dropdown-item" href="{{ route('home') }}">
                     Dashboard
                   </a>
+                     <a href="/my" class="dropdown-item"> My Properties</a>
                     <a href="/Seller2" class="dropdown-item">Sell Properties</a>
 
                   <a class="dropdown-item" href="{{ route('logout') }}"
