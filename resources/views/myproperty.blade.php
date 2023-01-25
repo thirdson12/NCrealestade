@@ -27,7 +27,6 @@
                     <th>Address</th>
                     <th>Bedrooms</th>
                     <th>Bathrooms</th>
-                    <th>Seller</th>
                                       <th>Category</th>
                                       <th>Actions</th>
                   </tr>
@@ -43,7 +42,6 @@
                         <td>{{ $property->address }}</td>
                         <td>{{ $property->bedrooms }}</td>
                                               <td>{{$property->bathrooms}}</td>
-                                              <td>{{$property->user->name}}</td>
                                               <td>{{$property->category->name}}</td>
                         <td>
                                                   <div class="btn-group" role="group">

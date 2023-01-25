@@ -122,147 +122,147 @@ class BotManController extends Controller
 
         //BOTMAN TRANSLATE
 
-        $botman->hears('translate {text} to {language}', function (BotMan $bot, $text, $language) {
+        // $botman->hears('translate {text} to {language}', function (BotMan $bot, $text, $language) {
 
-        //API URL i ayarladın
-        $apiUrl = "https://api.mymemory.translated.net/get";
+        // //API URL i ayarladın
+        // $apiUrl = "https://api.mymemory.translated.net/get";
 
-        // API request parametresi
-        $params = [
-            "q" => $text,
-            "langpair" => "en|$language",
-            "key" => "22aafffa720165c77db2"
-        ];
+        // // API request parametresi
+        // $params = [
+        //     "q" => $text,
+        //     "langpair" => "en|$language",
+        //     "key" => "22aafffa720165c77db2"
+        // ];
 
-        // Build the query string
-        $query = http_build_query($params);
+        // // Build the query string
+        // $query = http_build_query($params);
 
-        // Send the request and get the response
-        $response = file_get_contents("$apiUrl?$query");
+        // // Send the request and get the response
+        // $response = file_get_contents("$apiUrl?$query");
 
-        // Decode the response as JSON
-        $responseJson = json_decode($response, true);
+        // // Decode the response as JSON
+        // $responseJson = json_decode($response, true);
 
-        // Send the translated text back to the user
-        $bot->reply($responseJson['responseData']['translatedText']);
-        });
+        // // Send the translated text back to the user
+        // $bot->reply($responseJson['responseData']['translatedText']);
+        // });
 
 
-        $botman->hears('translate {text} from {source} to {target}', function (BotMan $bot, $text, $source, $target){
-        // Set the API endpoint URL
-        $apiUrl = "https://api.mymemory.translated.net/get";
+        // $botman->hears('translate {text} from {source} to {target}', function (BotMan $bot, $text, $source, $target){
+        // // Set the API endpoint URL
+        // $apiUrl = "https://api.mymemory.translated.net/get";
 
-        // Initialize the translated text variable
-        $translatedText = "";
+        // // Initialize the translated text variable
+        // $translatedText = "";
 
-        // Break the text up into chunks of 10,000 characters or less
-        $chunks = str_split($text, 10000);
+        // // Break the text up into chunks of 10,000 characters or less
+        // $chunks = str_split($text, 10000);
 
-        // Loop through the chunks
-        foreach ($chunks as $chunk) {
-            // Set the parameters for the API request
-            $params = [
-                "q" => $chunk,
-                "langpair" => "$source|$target",
-                "key" => "22aafffa720165c77db2"
-            ];
+        // // Loop through the chunks
+        // foreach ($chunks as $chunk) {
+        //     // Set the parameters for the API request
+        //     $params = [
+        //         "q" => $chunk,
+        //         "langpair" => "$source|$target",
+        //         "key" => "22aafffa720165c77db2"
+        //     ];
 
-            // Build the query string
-            $query = http_build_query($params);
+        //     // Build the query string
+        //     $query = http_build_query($params);
 
-            // Send the request and get the response
-            $response = file_get_contents("$apiUrl?$query");
+        //     // Send the request and get the response
+        //     $response = file_get_contents("$apiUrl?$query");
 
-            // Decode the response as JSON
-            $responseJson = json_decode($response, true);
-            // Add the translated text to the overall translated text
-            $translatedText .= $responseJson['responseData']['translatedText'];
-            }
+        //     // Decode the response as JSON
+        //     $responseJson = json_decode($response, true);
+        //     // Add the translated text to the overall translated text
+        //     $translatedText .= $responseJson['responseData']['translatedText'];
+        //     }
 
-            // Send the translated text back to the user
-            $bot->reply($translatedText);
-            });
+        //     // Send the translated text back to the user
+        //     $bot->reply($translatedText);
+        //     });
 
             // //-------------------------------------------------
             // //Auto translate ama garip
 
-            // // Set up a conversation with the user
-            // $botman->hears('translate {text} from {source} to {target}', function (BotMan $bot, $text, $source, $target) {
-            //     // Set the API endpoint URL
-            //     $apiUrl = "https://api.mymemory.translated.net/get";
+             // Set up a conversation with the user
+             $botman->hears('translate {text} from {source} to {target}', function (BotMan $bot, $text, $source, $target) {
+                 // Set the API endpoint URL
+                 $apiUrl = "https://api.mymemory.translated.net/get";
 
-            //     // Initialize the translated text variable
-            //     $translatedText = "";
+                 // Initialize the translated text variable
+                 $translatedText = "";
 
-            //     // Break the text up into chunks of 10,000 characters or less
-            //     $chunks = str_split($text, 10000);
+                 // Break the text up into chunks of 10,000 characters or less
+                 $chunks = str_split($text, 10000);
 
-            //     // Loop through the chunks
-            //     foreach ($chunks as $chunk) {
-            //         // Set the parameters for the API request
-            //         $params = [
-            //             "q" => $chunk,
-            //             "langpair" => "$source|$target",
-            //             "key" => "22aafffa720165c77db2"
-            //         ];
+                 // Loop through the chunks
+                 foreach ($chunks as $chunk) {
+                     // Set the parameters for the API request
+                     $params = [
+                         "q" => $chunk,
+                         "langpair" => "$source|$target",
+                         "key" => "22aafffa720165c77db2"
+                     ];
 
-            //         // Build the query string
-            //         $query = http_build_query($params);
+                     // Build the query string
+                     $query = http_build_query($params);
 
-            //         // Send the request and get the response
-            //         $response = file_get_contents("$apiUrl?$query");
+                     // Send the request and get the response
+                     $response = file_get_contents("$apiUrl?$query");
 
-            //         // Decode the response as JSON
-            //         $responseJson = json_decode($response, true);
+                    // Decode the response as JSON
+                     $responseJson = json_decode($response, true);
 
-            //         // Add the translated text to the overall translated text
-            //         $translatedText .= $responseJson['responseData']['translatedText'];
-            //     }
+                    // Add the translated text to the overall translated text
+                     $translatedText .= $responseJson['responseData']['translatedText'];
+                 }
 
-            //     // Send the translated text back to the user
-            //     $bot->reply($translatedText);
-            // });
+                // Send the translated text back to the user
+                 $bot->reply($translatedText);
+             });
 
-            // // Set up a fallback conversation for all other messages
-            //  $botman->fallback(function (BotMan $bot) {
-            //     // Set the default source and target languages
-            //     $source = "en";
-            //     $target = "tr";
+             // Set up a fallback conversation for all other messages
+              $botman->fallback(function (BotMan $bot) {
+                 // Set the default source and target languages
+                $source = "en";
+                $target = "tr";
 
-            //     // Set the API endpoint URL
-            //     $apiUrl = "https://api.mymemory.translated.net/get";
+                 // Set the API endpoint URL
+                 $apiUrl = "https://api.mymemory.translated.net/get";
 
-            //     // Initialize the translated text variable
-            //     $translatedText = "";
+                 // Initialize the translated text variable
+                 $translatedText = "";
 
-            //     // Break the text up into chunks of 10,000 characters or less
-            //     $chunks = str_split($bot->getMessage()->getText(), 10000);
+                 // Break the text up into chunks of 10,000 characters or less
+                 $chunks = str_split($bot->getMessage()->getText(), 10000);
 
-            //     // Loop through the chunks
-            //     foreach ($chunks as $chunk) {
-            //         // Set the parameters for the API request
-            //         $params = [
-            //             "q" => $chunk,
-            //             "langpair" => "$source|$target",
-            //             "key" => "22aafffa720165c77db2"
-            //         ];
+                 // Loop through the chunks
+                 foreach ($chunks as $chunk) {
+                     // Set the parameters for the API request
+                     $params = [
+                         "q" => $chunk,
+                         "langpair" => "$source|$target",
+                         "key" => "22aafffa720165c77db2"
+                     ];
 
-            //         // Build the query string
-            //         $query = http_build_query($params);
+                     // Build the query string
+                     $query = http_build_query($params);
 
-            //         // Send the request and get the response
-            //         $response = file_get_contents("$apiUrl?$query");
+                    // Send the request and get the response
+                     $response = file_get_contents("$apiUrl?$query");
 
-            //         // Decode the response as JSON
-            //         $responseJson = json_decode($response, true);
+                     // Decode the response as JSON
+                     $responseJson = json_decode($response, true);
 
-            //         // Add the translated text to the overall translated text
-            //         $translatedText .= $responseJson['responseData']['translatedText'];
-            //     }
+                     // Add the translated text to the overall translated text
+                     $translatedText .= $responseJson['responseData']['translatedText'];
+                 }
 
-            //     // Send the translated text back to the user
-            //     $bot->reply($translatedText);
-            //     });
+                 // Send the translated text back to the user
+                $bot->reply($translatedText);
+                 });
 
         //-----------------------------------------------Çalışmayan Register
 
