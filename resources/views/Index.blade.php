@@ -221,6 +221,7 @@
       <div class="title-box">
         <h2 class="title-a">Our Admins</h2>
       </div>
+
       <div class="title-link">
         {{-- <a href="#">All Agents --}}
         </a>
@@ -228,6 +229,7 @@
     </div>
   </div>
 </div>
+
 <div class="row">
   <div class="col-md-4">
     <div class="card-box-d">
@@ -301,10 +303,10 @@
 
           <div class="info-agents color-a">
             <p>
-                <strong>Phone: </strong> +90 530 830 4231
+                <strong>Phone: </strong> +90 530 830 4232
             </p>
             <p>
-                <strong>Email: </strong> bertu@bertu.com
+                <strong>Email: </strong> bguneslier@gmail.com
             </p>
           </div>
         </div>
@@ -337,6 +339,7 @@
       </div>
     </div>
   </div>
+
   <div class="col-md-4">
     <div class="card-box-d">
       <div class="card-img-d">
@@ -346,7 +349,7 @@
         <div class="card-header-d">
           <div class="card-title-d align-self-center">
             <h3 class="title-d">
-              <a href="http://127.0.0.1:8000/chatify/5" class="link-two">Baronu Topçinar</a>
+              <a href="http://127.0.0.1:8000/chatify/5" class="link-two">Baran Topçınar</a>
               <br>
             </h3>
           </div>
@@ -355,10 +358,10 @@
 
           <div class="info-agents color-a">
             <p>
-                <strong>Phone: </strong> +90 530 830 4231
+                <strong>Phone: </strong> +90 533 859 7168
             </p>
             <p>
-                <strong>Email: </strong> bertu@bertu.com
+                <strong>Email: </strong> brntpcnr@gmail.com
             </p>
           </div>
         </div>

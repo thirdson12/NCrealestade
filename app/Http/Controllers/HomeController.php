@@ -34,7 +34,7 @@ class HomeController extends Controller
     {
         // if logged in user is admin, redirect to admin dashboard
         if(auth()->user()->is_admin == 2) {
-          return redirect()->to('auth/seller');
+          return redirect()->to('/seller2');
         }
         // if logged in user is not admin, redirect to 'home' (user dashboard)
         return view('home');

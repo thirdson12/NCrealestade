@@ -1,19 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid" id="container-wrapper">
+<div class="container-fluid " id="container-wrapper">
 
 	<!-- Breadcrumb -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Property</h1>
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="./">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Edit Property</li>
+			<li class="breadcrumb-item text-gray"><a href="/">Home</a></li>
+
 		</ol>
 	</div>
 
+
 	<div class="row">
-		<div class="col-lg-6">
+
+		<div class="card " >
 
 			<!-- Session messages -->
 			@if (Session::has('message'))
@@ -22,11 +24,11 @@
 				</div>
 			@endif
 
-			<div class="card mb-4">
+			<div class="card mb-6 ">
 				<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 					<h6 class="m-0 font-weight-bold text-primary">Edit Property</h6>
 				</div>
-				<div class="card-body">
+				<div class="card-body ">
 
 					<!-- Form -->
 					<form action="{{route('my.update', [$property->id])}}" method="post" enctype="multipart/form-data">
@@ -102,7 +104,7 @@
 									</option>
 								@endforeach
 							</select>
-
+                        </div>
 						{{-- <div class="form-group">
 							<label for="description">Choose Subcategory</label>
 							<select name="subcategory" class="form-control @error('subcategory') is-invalid @enderror">
@@ -124,7 +126,7 @@
 						</div> --}}
 
 						<div class="form-group">
-							<img src="{{Storage::url($property->image)}}" width="100" height="100">
+							<img src="{{Storage::url($property->image)}}"  width="1" height="1">
 							<div class="custom-file mt-2">
 								<input
 									type="file"
